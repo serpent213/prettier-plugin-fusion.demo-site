@@ -23,7 +23,12 @@ export default defineConfig({
           assetFileNames: "[name].[ext]"
         }
       },
-      assetsInlineLimit: 100000
+      assetsInlineLimit: 100000,
+      minify: "terser",
+      terserOptions: {
+        keep_classnames: true,
+        keep_fnames: true
+      }
     }
   }
 })

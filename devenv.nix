@@ -21,11 +21,14 @@
 
   # https://devenv.sh/scripts/
   scripts.deploy.exec = ''
-    scp dist/index.html shell:/var/www/vhosts/zensurradar.de/
+    scp dist/index.html dist/index.astro_astro_type_script_index_0_lang.js shell:htdocs/fusionfmt/
     ssh shell "
-      gzip -9c /var/www/vhosts/zensurradar.de/index.html > /var/www/vhosts/zensurradar.de/index.html.gz
-      brotli -9c /var/www/vhosts/zensurradar.de/index.html > /var/www/vhosts/zensurradar.de/index.html.br
-      zstd -19c /var/www/vhosts/zensurradar.de/index.html > /var/www/vhosts/zensurradar.de/index.html.zst
+      gzip -9c htdocs/fusionfmt/index.html > htdocs/fusionfmt/index.html.gz
+      gzip -9c htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js > htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js.gz
+      brotli -9c htdocs/fusionfmt/index.html > htdocs/fusionfmt/index.html.br
+      brotli -9c htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js > htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js.br
+      zstd -9c htdocs/fusionfmt/index.html > htdocs/fusionfmt/index.html.zst
+      zstd -19c htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js > htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js.zst
     "
   '';
 }

@@ -12,10 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "check": "npm run format && npm run lint && npm run astro check",
-    "fix": "npm run format:fix && npm run lint:fix",
-    "compress": "npx tsx scripts/compress-assets.ts",
-    "deploy": "npx tsx scripts/deploy.ts",
-    "deploy:dry": "npx tsx scripts/deploy.ts --dry-run"
+    "fix": "npm run format:fix && npm run lint:fix"
   },
   "dependencies": {
     "@plausible-analytics/tracker": "^0.4.4",
@@ -34,6 +31,7 @@
     "prettier-plugin-svelte": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.11",
+    "terser": "^5.44.1",
     "tsx": "^4.0.0",
     "typescript": "^5.9.2"
   }

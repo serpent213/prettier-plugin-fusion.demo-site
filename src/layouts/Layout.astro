@@ -1,6 +1,4 @@
 ---
-import plausibleScript from "../scripts/plausible.ts?url"
-
 interface Props {
   title?: string
   description?: string
@@ -16,7 +14,7 @@ const { title = "Fusion Formatter Demo", description = "" } = Astro.props
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="/favicon.svg" />
     <title>{title}</title>
-    <script type="module" src={plausibleScript}></script>
+    <script src="../scripts/plausible.ts"></script>
   </head>
   <body>
     <slot />

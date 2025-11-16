@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import playgroundScript from "../scripts/playground.ts?url"
 import "../styles/global.css"
 
 const initialFusion = `prototype(Demo) {
@@ -110,5 +109,7 @@ content = \${value}
     </footer>
   </main>
 
-  <script type="module" src={playgroundScript}></script>
+  <script>
+    import "../scripts/playground.ts"
+  </script>
 </Layout>

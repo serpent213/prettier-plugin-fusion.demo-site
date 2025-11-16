@@ -22,14 +22,15 @@ content = \${value}
 ---
 
 <Layout title="Fusion Formatter" description="Prettier plugin demo for Neos Fusion">
-  <main class="m-0 flex flex-col gap-6 px-6 pb-16 pt-12">
+  <main class="m-0 flex flex-col gap-6 px-6 pt-12 pb-16">
     <header class="mx-auto w-full max-w-screen-xl">
       <div>
-        <p class="mb-2 text-xs uppercase tracking-wider text-slate-400">Prettier Plugin for Neos CMS Fusion</p>
+        <p class="mb-2 text-xs tracking-wider text-slate-400 uppercase">Prettier Plugin for Neos CMS Fusion</p>
         <h1 class="mb-2 text-[clamp(28px,4vw,40px)] leading-tight">Fusion formatter playground</h1>
         <p class="m-0 max-w-[680px] leading-relaxed text-slate-300">
-          Type your Fusion code on the left. We format it live on the right so
-          you can try <code>prettier-plugin-fusion</code> without leaving the browser.
+          Type your Fusion code on the left. We format it live on the right so you can try <code
+            >prettier-plugin-fusion</code
+          > without leaving the browser.
         </p>
       </div>
     </header>
@@ -50,7 +51,7 @@ content = \${value}
               value="2"
               min="1"
               max="8"
-              class="w-[60px] rounded-md border border-gray-800 bg-[#0b1224] px-2 py-1 text-sm text-slate-200 outline-none transition-colors duration-150 focus:border-sky-400"
+              class="w-[60px] rounded-md border border-gray-800 bg-[#0b1224] px-2 py-1 text-sm text-slate-200 transition-colors duration-150 outline-none focus:border-sky-400"
             />
           </label>
           <button
@@ -74,8 +75,9 @@ content = \${value}
           autocomplete="off"
           autocapitalize="off"
           aria-describedby="error"
-          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto whitespace-pre break-normal rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] outline-none transition-all duration-150 focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
-        >{initialFusion}</textarea>
+          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-150 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
+          >{initialFusion}</textarea
+        >
         <p id="error" class="error-msg m-0 h-5 text-sm text-red-300" role="status" aria-live="polite"></p>
       </div>
 
@@ -84,7 +86,7 @@ content = \${value}
           id="output"
           spellcheck="false"
           readonly
-          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto whitespace-pre break-normal rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] outline-none transition-all duration-150 focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
+          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-150 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
         ></textarea>
         <div
           class="error-overlay pointer-events-none absolute inset-0 grid place-items-center rounded-xl border border-red-500 bg-slate-900/85 font-bold tracking-wide text-red-300 opacity-0 transition-opacity duration-150"
@@ -98,7 +100,12 @@ content = \${value}
     <footer class="mx-auto mt-2 w-full max-w-screen-xl border-t border-slate-400/20 pt-4 text-slate-400">
       <p>
         Powered by <code>prettier</code> + <code>prettier-plugin-fusion</code>. Learn more on
-        <a href="https://github.com/sandstorm/prettier-plugin-fusion" target="_blank" rel="noreferrer" class="text-sky-400 no-underline hover:underline">GitHub</a>.
+        <a
+          href="https://github.com/sandstorm/prettier-plugin-fusion"
+          target="_blank"
+          rel="noreferrer"
+          class="text-sky-400 no-underline hover:underline">GitHub</a
+        >.
       </p>
     </footer>
   </main>

@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import "../styles/global.css"
+import { readFileSync } from "node:fs"
+import { resolve } from "node:path"
+
+const pluginPkg = JSON.parse(
+  readFileSync(resolve("node_modules/prettier-plugin-fusion/package.json"), "utf-8"),
+)
+const pluginVersion = pluginPkg.version
 
 const initialFusion = `prototype(Demo) {
 renderer = Demo.Renderer
@@ -98,7 +105,7 @@ content = \${value}
 
     <footer class="mx-auto mt-2 w-full max-w-screen-xl border-t border-slate-400/20 pt-4 text-center text-slate-400">
       <p>
-        Powered by <code>prettier</code> + <code>prettier-plugin-fusion</code>. Learn more on
+        Powered by <code>prettier</code> + <code>prettier-plugin-fusion</code> v{pluginVersion}. Learn more on
         <a
           href="https://github.com/serpent213/prettier-plugin-fusion"
           target="_blank"

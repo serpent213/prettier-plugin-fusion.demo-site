@@ -22,11 +22,11 @@ content = \${value}
 
 <Layout title="Fusion Formatter" description="Prettier plugin demo for Neos Fusion">
   <main class="m-0 flex flex-col gap-6 px-6 pt-12 pb-16">
-    <header class="mx-auto w-full max-w-screen-xl">
+    <header class="mx-auto w-full max-w-screen-xl text-center">
       <div>
         <p class="mb-2 text-xs tracking-wider text-slate-400 uppercase">Prettier Plugin for Neos CMS Fusion</p>
         <h1 class="mb-2 text-[clamp(28px,4vw,40px)] leading-tight">Fusion formatter playground</h1>
-        <p class="m-0 max-w-[680px] leading-relaxed text-slate-300">
+        <p class="mx-auto m-0 max-w-[680px] leading-relaxed text-slate-300">
           Type your Fusion code on the left. We format it live on the right so you can try <code
             >prettier-plugin-fusion</code
           > without leaving the browser.
@@ -50,13 +50,13 @@ content = \${value}
               value="2"
               min="1"
               max="8"
-              class="w-[60px] rounded-md border border-gray-800 bg-[#0b1224] px-2 py-1 text-sm text-slate-200 transition-colors duration-150 outline-none focus:border-sky-400"
+              class="w-[60px] rounded-md border border-gray-800 bg-[#0b1224] px-2 py-1 text-sm text-slate-200 transition-colors duration-50 outline-none focus:border-sky-400"
             />
           </label>
           <button
             id="clear"
             type="button"
-            class="cursor-pointer rounded-lg border border-slate-700 bg-gradient-to-b from-gray-800 to-slate-900 px-3.5 py-2 text-sm font-semibold text-slate-200 shadow-[0_4px_20px_rgba(15,23,42,0.35)] transition-all duration-150 hover:-translate-y-px hover:border-sky-400 hover:shadow-[0_8px_30px_rgba(14,165,233,0.25)]"
+            class="cursor-pointer rounded-lg border border-slate-700 bg-gradient-to-b from-gray-800 to-slate-900 px-3.5 py-2 text-sm font-semibold text-slate-200 shadow-[0_4px_20px_rgba(15,23,42,0.35)] transition-all duration-50 hover:-translate-y-px hover:border-sky-400 hover:shadow-[0_8px_30px_rgba(14,165,233,0.25)]"
           >
             Clear
           </button>
@@ -74,7 +74,7 @@ content = \${value}
           autocomplete="off"
           autocapitalize="off"
           aria-describedby="error"
-          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-150 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
+          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-50 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
           >{initialFusion}</textarea
         >
         <p id="error" class="error-msg m-0 h-5 text-sm text-red-300" role="status" aria-live="polite"></p>
@@ -85,10 +85,10 @@ content = \${value}
           id="output"
           spellcheck="false"
           readonly
-          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-150 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
+          class="h-[calc(100vh-16rem)] w-full resize-none overflow-x-auto rounded-xl border border-gray-800 bg-[#0b1224] p-3.5 font-mono text-sm leading-relaxed break-normal whitespace-pre text-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_15px_40px_rgba(15,23,42,0.45)] transition-all duration-50 outline-none focus:border-sky-400 focus:shadow-[0_15px_45px_rgba(14,165,233,0.28)]"
         ></textarea>
         <div
-          class="error-overlay pointer-events-none absolute inset-0 grid place-items-center rounded-xl border border-red-500 bg-slate-900/85 font-bold tracking-wide text-red-300 opacity-0 transition-opacity duration-150"
+          class="error-overlay pointer-events-none absolute inset-0 h-[calc(100vh-16rem)] grid place-items-center rounded-xl border border-red-500 bg-slate-900 font-bold tracking-wide text-red-300 opacity-0 transition-opacity duration-50"
           id="disabled-overlay"
         >
           Formatter error
@@ -96,11 +96,11 @@ content = \${value}
       </div>
     </section>
 
-    <footer class="mx-auto mt-2 w-full max-w-screen-xl border-t border-slate-400/20 pt-4 text-slate-400">
+    <footer class="mx-auto mt-2 w-full max-w-screen-xl border-t border-slate-400/20 pt-4 text-center text-slate-400">
       <p>
         Powered by <code>prettier</code> + <code>prettier-plugin-fusion</code>. Learn more on
         <a
-          href="https://github.com/sandstorm/prettier-plugin-fusion"
+          href="https://github.com/serpent213/prettier-plugin-fusion"
           target="_blank"
           rel="noreferrer"
           class="text-sky-400 no-underline hover:underline">GitHub</a

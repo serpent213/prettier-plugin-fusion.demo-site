@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const setError = (message: string) => {
       errorEl.textContent = message || ""
-      overlay.classList.toggle("!opacity-100", Boolean(message))
+      overlay.classList.toggle("!opacity-60", Boolean(message))
     }
 
     const formatNow = async () => {
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         output.value = pretty.trimEnd()
         setError("")
       } catch (err: unknown) {
-        output.value = ""
         setError(err instanceof Error ? err.message : "Formatter error")
       }
     }

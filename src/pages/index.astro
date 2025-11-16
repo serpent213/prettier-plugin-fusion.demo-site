@@ -1,0 +1,212 @@
+---
+import Layout from "../layouts/Layout.astro"
+import playgroundScript from "../scripts/playground.ts?url"
+import "../styles/global.css"
+
+const initialFusion = `include: Demo {
+  renderer: Demo.Renderer
+  title = "Hello Fusion"
+
+  renderer.@context {
+    value = "Nice to meet you 🧩"
+  }
+}
+
+prototype( Demo.Renderer ) < prototype( Neos.Fusion:Component ) {
+  renderer = Neos.Fusion:Tag {
+    tagName = "h1"
+    content = ${"${value}"}
+  }
+}
+`
+---
+
+<Layout title="Fusion Formatter" description="Prettier plugin demo for Neos Fusion">
+  <main class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Prettier Plugin for Neos CMS Fusion</p>
+        <h1>Fusion formatter playground</h1>
+        <p class="lede">
+          Type your Fusion code on the left. We format it live on the right so
+          you can try <code>prettier-plugin-fusion</code> without leaving the browser.
+        </p>
+      </div>
+      <button id="clear" type="button">Clear</button>
+    </header>
+
+    <section class="panes">
+      <div class="pane">
+        <label for="input">Your Fusion code</label>
+        <textarea
+          id="input"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="error"
+        >{initialFusion}</textarea>
+        <p id="error" class="error" role="status" aria-live="polite"></p>
+      </div>
+      <div class="pane">
+        <label for="output">Formatted</label>
+        <div class="output-wrap">
+          <textarea id="output" spellcheck="false" readonly></textarea>
+          <div class="overlay" id="disabled-overlay">Formatter error</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Powered by <code>prettier</code> + <code>prettier-plugin-fusion</code>. Learn more on
+        <a href="https://github.com/sandstorm/prettier-plugin-fusion" target="_blank" rel="noreferrer">GitHub</a>.
+      </p>
+    </footer>
+  </main>
+
+  <style>
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      margin: 0 0 8px;
+      color: #94a3b8;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 680px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    button#clear {
+      border: 1px solid #334155;
+      background: linear-gradient(180deg, #1f2937, #0f172a);
+      color: #e2e8f0;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+      box-shadow: 0 6px 30px rgba(15, 23, 42, 0.35);
+    }
+
+    button#clear:hover {
+      transform: translateY(-1px);
+      border-color: #38bdf8;
+      box-shadow: 0 12px 40px rgba(14, 165, 233, 0.25);
+    }
+
+    .panes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .pane {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 320px;
+      resize: vertical;
+      font-family: "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      background: #0b1224;
+      color: #e2e8f0;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 14px;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 15px 40px rgba(15, 23, 42, 0.45);
+      transition: border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 15px 45px rgba(14, 165, 233, 0.28);
+    }
+
+    .output-wrap {
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #ef4444;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fca5a5;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 120ms ease;
+    }
+
+    .overlay.visible {
+      opacity: 1;
+    }
+
+    .error {
+      min-height: 20px;
+      margin: 0;
+      color: #fca5a5;
+      font-size: 14px;
+    }
+
+    .footer {
+      color: #94a3b8;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding-top: 16px;
+      margin-top: 8px;
+    }
+
+    .footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script type="module" src={playgroundScript}></script>
+</Layout>

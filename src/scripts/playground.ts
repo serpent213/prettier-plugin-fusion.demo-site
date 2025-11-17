@@ -1,5 +1,6 @@
 import prettier from "prettier/standalone"
 import * as fusionPlugin from "prettier-plugin-fusion"
+import * as htmlPlugin from "prettier/plugins/html"
 
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector<HTMLTextAreaElement>("#input")
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const pretty = await prettier.format(input.value, {
           parser: "fusion",
-          plugins: [fusionPlugin],
+          plugins: [fusionPlugin, htmlPlugin],
           tabWidth: resolveTabWidth(),
           singleQuote: singleQuoteToggle.checked,
           printWidth: 118,

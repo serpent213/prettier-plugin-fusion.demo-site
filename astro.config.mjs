@@ -26,6 +26,7 @@ export default defineConfig({
       assetsInlineLimit: 100000,
       minify: "terser",
       terserOptions: {
+        // important for Fusion parser to work
         keep_classnames: true,
         keep_fnames: true
       }

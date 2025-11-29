@@ -6,7 +6,7 @@
 - `src/layouts/Layout.astro`: Base HTML shell, loads Plausible and shared head elements.
 - `src/scripts/`: Frontend helpers (`playground.ts` for formatting, `plausible.ts` for analytics).
 - `src/styles/global.css`: Lightweight global styles (single theme, no Tailwind runtime).
-- `public/`: Static assets such as `favicon.svg`.
+- `public/`: Static assets such as `favicon.png`.
 
 ## Build, Test, and Development Commands
 

@@ -8,12 +8,11 @@ const pluginPkg = JSON.parse(readFileSync(resolve("node_modules/prettier-plugin-
 const pluginVersion = pluginPkg.version
 
 const initialFusion = readFileSync(resolve("src/examples/one.fusion"), "utf-8")
-
 ---
 
 <Layout title="Fusion Formatter" description="Prettier plugin demo for Neos Fusion">
   <main class="m-0 flex flex-col gap-6 px-6 pt-12 pb-16">
-    <header class="mx-auto w-full max-w-screen-xl text-center">
+    <header class="z-50 mx-auto w-full max-w-screen-xl text-center">
       <div>
         <p class="mb-2 text-xs tracking-wider text-slate-400 uppercase">Prettier Plugin for Neos CMS Fusion</p>
         <h1 class="mb-2 text-[clamp(28px,4vw,40px)] leading-tight">Fusion formatter playground</h1>
@@ -24,6 +23,10 @@ const initialFusion = readFileSync(resolve("src/examples/one.fusion"), "utf-8")
         </p>
       </div>
     </header>
+
+    <div class="absolute top-13 right-[13%] z-20">
+      <img class="max-h-40" src="/fusionferret.png" alt="The Fusion Ferret mascot" />
+    </div>
 
     <section class="grid grid-cols-2 grid-rows-[auto_1fr] gap-4">
       <div class="flex h-10 items-center justify-between gap-4">

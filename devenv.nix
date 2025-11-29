@@ -21,7 +21,7 @@
 
   # https://devenv.sh/scripts/
   scripts.deploy.exec = ''
-    scp dist/index.html dist/index.astro_astro_type_script_index_0_lang.js shell:htdocs/fusionfmt/
+    scp dist/index.html dist/index.astro_astro_type_script_index_0_lang.js dist/*.png shell:htdocs/fusionfmt/
     ssh shell "
       gzip -9c htdocs/fusionfmt/index.html > htdocs/fusionfmt/index.html.gz
       gzip -9c htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js > htdocs/fusionfmt/index.astro_astro_type_script_index_0_lang.js.gz

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           plugins: [fusionPlugin, htmlPlugin],
           tabWidth: resolveTabWidth(),
           singleQuote: singleQuoteToggle.checked,
-          printWidth: 118,
+          printWidth: 78,
           trailingComma: "none"
         })
 

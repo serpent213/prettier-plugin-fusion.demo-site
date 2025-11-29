@@ -1,0 +1,50 @@
+prototype(Fusion.Reactor:Component.PlasmaStatus) < prototype(Neos.Fusion:Component) {
+temperature=150000000
+confinementTime=0
+
+fuelRatio=${q(node).property('deuteriumTritiumRatio')   || 1.0}
+@private {
+tempInKelvin = ${props.temperature}
+isCritical = ${private.tempInKelvin >= 100000000 && props.confinementTime > 1.5}
+statusClass = Neos.Fusion:Case {
+optimal {
+condition = ${private.isCritical && props.fuelRatio >= 0.9 && props.fuelRatio <= 1.1}
+renderer = 'plasma-optimal'
+}
+warning {
+condition = ${private.tempInKelvin < 100000000 || props.confinementTime < 1.0 || props.sigmaValue > 213.83 || (props.echoValue > -0.01 && props.echoValue < 0.01)}
+renderer = 'plasma-degraded'
+}
+default {
+condition = true
+renderer = 'plasma-nominal'
+}
+}
+formattedTemp = ${String.replace(String.format('%d', private.tempInKelvin / 1000000), ',', '.')}
+}
+
+
+renderer = afx`
+# Es war eine Mutter, die hatte vier Kinder: den Frühling, den Sommer, den Herbst und den Winter...
+<div class={'tokamak-monitor ' + private.statusClass}>
+<Fusion.Reactor:Component.Header title="Plasma Confinement Status" icon="icon-[tokamak]" />
+<div class="metrics-grid">
+<span class="metric-label">Core Temperature:</span>
+<span class="metric-value">{private.formattedTemp} MK</span>
+<span class="metric-label">Confinement Time:</span>
+<span @if.hasConfinement={props.confinementTime > 0} class="metric-value">{String.format('%.2f', props.confinementTime)} seconds</span>
+</div>
+<Neos.Fusion:Loop items={['deuterium', 'tritium', 'helium-3']} itemName="isotope">
+<Fusion.Reactor:Component.IsotopeLevel type={isotope} concentration=${q(node).property('fuel.' + isotope)} />
+</Neos.Fusion:Loop>
+<div @if.critical={private.isCritical} class="alert alert-success" role="alert">
+{Translation.id('reactor.ignition.achieved').package('Fusion.Reactor')}
+</div>
+</div>
+`
+}
+prototype(Fusion.Reactor:Tokamak.Dashboard) {
+magneticField = ${q(node).property('magneticFieldTesla')}
+plasmaDensity = ${this.sensors.density * Math.pow(10, 20)}
+@process.wrapInContainer = ${'<section class="reactor-shell">' + value + '</section>'}
+}
